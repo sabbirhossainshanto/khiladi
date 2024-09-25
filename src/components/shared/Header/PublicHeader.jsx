@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Login from "../../modal/Login/Login";
 import {
+  setGroupType,
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/stateSlice";
@@ -12,6 +13,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 const PublicHeader = () => {
+  const { group } = useSelector((state) => state.global);
   const [time, setTime] = useState();
   const { logo } = useContextState();
   const { showLoginModal, showRegisterModal } = useSelector(
@@ -150,7 +152,9 @@ const PublicHeader = () => {
               <div className="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3">
                 <div className="logo">
                   <i className="fa fa-bars icon-toggle-right cls-bx-menu baricon"></i>
-                  <Link to='/' className="b2clogolink">
+                  <Link
+                  onClick={()=> dispatch(setGroupType(0))}
+                  to="/" className="b2clogolink">
                     <img
                       src={logo}
                       width={settings.logoWidth}
@@ -201,8 +205,8 @@ const PublicHeader = () => {
                   <li>
                     <a>Home</a>
                   </li>
-                  <li>
-                    <a>In-Play</a>
+                  <li onClick={() => dispatch(setGroupType(0))}>
+                    <a className={`${group === 0 ? "active" : ""}`}>In-Play</a>
                   </li>
                   <li>
                     <a className="awesome">
@@ -212,24 +216,24 @@ const PublicHeader = () => {
                       Election
                     </a>
                   </li>
-                  <li>
-                    <a>
+                  <li onClick={() => dispatch(setGroupType(4))}>
+                    <a className={`${group === 4 ? "active" : ""}`}>
                       <span id="tagLive" className="tag-live">
                         <strong></strong>0
                       </span>
                       Cricket
                     </a>
                   </li>
-                  <li>
-                    <a>
+                  <li onClick={() => dispatch(setGroupType(1))}>
+                    <a className={`${group === 1 ? "active" : ""}`}>
                       <span id="tagLive" className="tag-live">
                         <strong></strong>0
                       </span>
-                      Soccer
+                      Football
                     </a>
                   </li>
-                  <li>
-                    <a>
+                  <li onClick={() => dispatch(setGroupType(2))}>
+                    <a className={`${group === 2 ? "active" : ""}`}>
                       <span id="tagLive" className="tag-live">
                         <strong></strong>0
                       </span>

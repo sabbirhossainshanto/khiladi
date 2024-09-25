@@ -6,9 +6,17 @@ import Group from "../../components/ui/Home/Group";
 import TopBanner from "../../components/ui/Home/TopBanner";
 import TopGames from "../../components/ui/Home/TopGames";
 import LeftSidebar from "../../components/shared/LeftSidebar/LeftSidebar";
+import { useGetAllGroupEventsQuery } from "../../redux/features/events/events";
+import isRefetchGroupData from "../../utils/isRefetchGroupData";
 
 const Home = () => {
   const { token } = useSelector((state) => state.auth);
+  const { group } = useSelector((state) => state.global);
+  const { data } = useGetAllGroupEventsQuery(group, {
+    pollingInterval: isRefetchGroupData(group) ? 1000 : null,
+  });
+
+
   return (
     <div className="full-wrap mar-top100  footerpd mar-top100-login mar-bottom0">
       {token ? <LeftSidebar /> : <TopBanner />}
@@ -26,7 +34,9 @@ const Home = () => {
         )}
         {!token && <TopGames />}
 
-        <Group />
+       {
+        data &&  <Group data={data} />
+       }
         {!token && (
           <div className="depositbonus-box">
             <div className="depositbonus-banner">
