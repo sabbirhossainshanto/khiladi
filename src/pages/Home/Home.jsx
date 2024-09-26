@@ -8,6 +8,7 @@ import TopGames from "../../components/ui/Home/TopGames";
 import LeftSidebar from "../../components/shared/LeftSidebar/LeftSidebar";
 import { useGetAllGroupEventsQuery } from "../../redux/features/events/events";
 import isRefetchGroupData from "../../utils/isRefetchGroupData";
+import Footer from "../../components/shared/Footer/Footer";
 
 const Home = () => {
   const { token } = useSelector((state) => state.auth);
@@ -46,7 +47,7 @@ const Home = () => {
         )}
         {!token && <FAQ />}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
