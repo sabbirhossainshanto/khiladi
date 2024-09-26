@@ -11,6 +11,7 @@ import Register from "../../modal/Register/Register";
 import { useEffect, useState } from "react";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
+import images from "../../../assets/images";
 
 const PublicHeader = () => {
   const navigate = useNavigate()
@@ -280,7 +281,7 @@ const PublicHeader = () => {
                       <span id="tagLive" className="tag-live1">
                         <img
                           className="ball-images-tab1-aviator new-scrollmenu"
-                          src="static/images/aviator-icon.svg"
+                          src={images.aviatorIcon}
                           alt=""
                         />
                       </span>

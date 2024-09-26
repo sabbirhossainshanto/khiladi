@@ -1,9 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import images from "../../../assets/images";
+import { useDispatch, useSelector } from "react-redux";
+import { setGroupType } from "../../../redux/features/stateSlice";
 
 const ScrollMenu = () => {
+  const navigate = useNavigate();
+  const { group } = useSelector((state) => state.global);
+  const dispatch = useDispatch();
+
   return (
     <div className="scrollmenu marposition">
-      <a>
+    <a className={`${group === 0 ? "active" : ""}`}
+        onClick={() => {
+          dispatch(setGroupType(0));
+          navigate("/");
+        }}
+      >
         <span className="sports-icon inplaymobile"></span> In-Play
       </a>
       <a className="awesomemobile">
@@ -12,19 +24,35 @@ const ScrollMenu = () => {
         </span>
         <span className="sports-icon electionmobile"></span>Election
       </a>
-      <a>
+      <a
+      className={`${group === 4 ? "active" : ""}`}
+      onClick={() => {
+        dispatch(setGroupType(4));
+        navigate("/");
+      }}
+      >
         <span id="tagLive" className="tag-livemobile">
           <strong></strong>0
         </span>
         <span className="sports-icon cricketmobile"></span>Cricket
       </a>
-      <a>
+      <a className={`${group === 1 ? "active" : ""}`}
+        onClick={() => {
+          dispatch(setGroupType(1));
+          navigate("/");
+        }}>
         <span id="tagLive" className="tag-livemobile">
           <strong></strong>0
         </span>
-        <span className="sports-icon soccermobile"></span>Soccer
+        <span className="sports-icon soccermobile"></span>Football
       </a>
-      <a>
+      <a
+      className={`${group === 2 ? "active" : ""}`}
+      onClick={() => {
+        dispatch(setGroupType(2));
+        navigate("/");
+      }}
+      >
         <span id="tagLive" className="tag-livemobile">
           <strong></strong>0
         </span>

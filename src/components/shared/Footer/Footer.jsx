@@ -1,6 +1,9 @@
+import { settings } from "../../../api";
 import images from "../../../assets/images";
+import useContextState from "../../../hooks/useContextState";
 
 const Footer = () => {
+  const { logo } = useContextState();
   return (
     <div className="partner_logo">
       <ul className="footer-providers__list footer-icon-desktop">
@@ -11,89 +14,89 @@ const Footer = () => {
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/ezugi.png" alt="Ezugi" />
+            <img src={images.ezugi} alt="Ezugi" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/pragmatic-live.png" alt="Pragmatic Live" />
+            <img src={images.pragmaticLive} alt="Pragmatic Live" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/betgames.png" alt="Betgames" />
+            <img src={images.betgames} alt="Betgames" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/ssg.png" alt="Super Spade Games" />
+            <img src={images.ssg} alt="Super Spade Games" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/betsoft.png" alt="Betsoft" />
+            <img src={images.betsoft} alt="Betsoft" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/spribe.png" alt="Spribe" />
+            <img src={images.spribe} alt="Spribe" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/Evoplay.png" alt="Evoplay" />
+            <img src={images.evoplay} alt="Evoplay" />
           </a>
         </li>
         <li className="footer-providers__list-item lastli">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/logo-18plus.svg" alt="+18" />
+            <img src={images.logo18plus} alt="+18" />
           </a>
         </li>
       </ul>
       <ul className="footer-providers__list footer-icon-mobile">
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/evolution.svg" alt="Evolution" />
+            <img src={images.evolution} alt="Evolution" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/ezugi.svg" alt="Ezugi" />
+            <img src={images.ezugi} alt="Ezugi" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/pragmatic.svg" alt="Pragmatic Live" />
+            <img src={images.pragmaticLive} alt="Pragmatic Live" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/betgames.svg" alt="Betgames" />
+            <img src={images.betgames} alt="Betgames" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/superspade.svg" alt="Super Spade Games" />
+            <img src={images.superspade} alt="Super Spade Games" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/betsoft.svg" alt="Betsoft" />
+            <img src={images.betsoft} alt="Betsoft" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/spribe.svg" alt="Spribe" />
+            <img src={images.spribe} alt="Spribe" />
           </a>
         </li>
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/evoplay.svg" alt="Evoplay" />
+            <img src={images.evoplay} alt="Evoplay" />
           </a>
         </li>
         <li className="footer-providers__list-item lastli">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/logo-18plus(1).svg" alt="+18" />
+            <img src={images.logo18plus} alt="+18" />
           </a>
         </li>
       </ul>
@@ -105,18 +108,18 @@ const Footer = () => {
                 <div className="site-logo footerlogodesktop">
                   <a href="#">
                     <img
-                      src="static/images/brand_logo_footer.svg"
-                      width="195"
-                      height="60px"
+                      src={logo}
+                      width={settings.logoWidth}
+                      height={settings.logoHeight}
                     />
                   </a>
                 </div>
                 <div className="footerlogomobile">
                   <a href="#">
                     <img
-                      src="static/images/brand_logo_footer1.svg"
-                      width="195"
-                      height="60px"
+                      src={logo}
+                      width={settings.logoWidth}
+                      height={settings.logoHeight}
                     />
                   </a>
                 </div>
