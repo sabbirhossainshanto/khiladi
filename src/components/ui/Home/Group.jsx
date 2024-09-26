@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { formatDate } from "../../../utils/formateDate";
-import isOddSuspended from "../../../utils/isOddSuspended";
 
 const Group = ({ data }) => {
   const [categories, setCategories] = useState([]);
@@ -39,15 +38,24 @@ const Group = ({ data }) => {
             <div className="sub_path center-box">
               <p> {eventName[category]}</p>
             </div>
-            <div className="game-wrap col3 desktop-view">
+            <div
+              // class -->  desktop-view
+              className="game-wrap col3 "
+            >
               <table className="table w-100 game-list-col">
                 <tbody>
                   <tr>
                     <td className="eventInfo"></td>
-                    <td className="col-visit">1</td>
-                    <td className="col-draw">x</td>
-                    <td className="col-home">2</td>
-                    <td className="col-info"></td>
+                    <td className="col-visit mobile-hide-item">1</td>
+                    <td className="col-draw mobile-hide-item">x</td>
+                    <td className="col-home mobile-hide-item">2</td>
+                    <td className="col-info mobile-view-item"
+                    style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'100%'}}
+                    >
+                    <td className="col-home ">1</td>
+                    <td className="col-home">x</td>
+                    <td className="col-home ">2</td>
+                    </td>
                   </tr>
 
                   {data &&
@@ -57,7 +65,6 @@ const Group = ({ data }) => {
                       .map((keys) => {
                         return (
                           <tr
-                        
                             onClick={() => navigateGameList(keys)}
                             key={keys}
                             style={{ display: "table-row" }}
@@ -67,7 +74,8 @@ const Group = ({ data }) => {
                                 <span className="dtime">
                                   {formatDate(data, keys)} |
                                 </span>
-                                {data[keys]?.player1} v {data[keys]?.player2}
+                                {data[keys]?.player1} v {" "} 
+                                {data[keys]?.player2}
                               </div>
                               <div className="d-inline float-right"></div>
                             </td>
@@ -97,7 +105,7 @@ const Group = ({ data }) => {
                                 </a>
                               </div>
                             </td>
-                            <td className="col-draw">
+                            <td className="col-draw mobile-hide-item">
                               <div className="">
                                 <a
                                   id="btnBack2"
@@ -123,7 +131,7 @@ const Group = ({ data }) => {
                                 </a>
                               </div>
                             </td>
-                            <td className="col-visit">
+                            <td className="col-visit mobile-hide-item">
                               <div className="">
                                 <a
                                   id="btnBack1"

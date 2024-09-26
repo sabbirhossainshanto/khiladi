@@ -1,0 +1,23 @@
+@media (max-width: 768px) {
+  .mobile-view-item {
+    display: block;
+  }
+  .desktop-view-item {
+    display: none;
+  }
+  .mobile-hide-item {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-view-item {
+    display: none !important;
+  }
+  .desktop-view-item {
+    display: block !important;
+  }
+  .desktop-hide-item {
+    display: none;
+  }
+}
