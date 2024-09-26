@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { formatDate } from "../../../utils/formateDate";
+import isOddSuspended from "../../../utils/isOddSuspended";
 
 const Group = ({ data }) => {
   const [categories, setCategories] = useState([]);
   const eventName = { 4: "Cricket", 2: "Tennis", 1: "Football" };
   const navigate = useNavigate();
   const navigateGameList = (keys) => {
-    navigate(`/game-details/${data[keys]?.eventTypeId}/${keys}`);
+    navigate(`/${data[keys]?.eventTypeId}/${keys}`);
   };
 
   useEffect(() => {
@@ -56,6 +57,7 @@ const Group = ({ data }) => {
                       .map((keys) => {
                         return (
                           <tr
+                        
                             onClick={() => navigateGameList(keys)}
                             key={keys}
                             style={{ display: "table-row" }}

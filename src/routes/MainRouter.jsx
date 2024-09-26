@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ScrollToTop from "../components/shared/ScrollToTop/ScrollToTop";
 import App from "../App";
 import Home from "../pages/Home/Home";
+import EventDetails from "../pages/EventDetails/EventDetails";
 
 const MainRouter = () => {
   const router = createBrowserRouter(
@@ -18,6 +19,10 @@ const MainRouter = () => {
           {
             index: true,
             element: <Home />,
+          },
+          {
+            path: "/:eventTypeId/:eventId",
+            element: <EventDetails />,
           },
         ],
       },

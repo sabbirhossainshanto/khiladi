@@ -1,8 +1,8 @@
 const isOddSuspended = (runner) => {
   if (runner?.status !== "OPEN" && runner?.status !== "ACTIVE") {
-    return true;
+    return 'suspended-event';
   }else{
-    return false
+    return 
   }
 };
 

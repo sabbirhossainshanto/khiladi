@@ -10,9 +10,10 @@ import { settings } from "../../../api";
 import Register from "../../modal/Register/Register";
 import { useEffect, useState } from "react";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const PublicHeader = () => {
+  const navigate = useNavigate()
   const { group } = useSelector((state) => state.global);
   const [time, setTime] = useState();
   const { logo } = useContextState();
@@ -205,7 +206,10 @@ const PublicHeader = () => {
                   <li>
                     <a>Home</a>
                   </li>
-                  <li onClick={() => dispatch(setGroupType(0))}>
+                  <li onClick={() => {
+                    dispatch(setGroupType(0))
+                    navigate('/')
+                  }}>
                     <a className={`${group === 0 ? "active" : ""}`}>In-Play</a>
                   </li>
                   <li>
@@ -216,7 +220,10 @@ const PublicHeader = () => {
                       Election
                     </a>
                   </li>
-                  <li onClick={() => dispatch(setGroupType(4))}>
+                  <li onClick={() => {
+                    dispatch(setGroupType(4))
+                    navigate('/')
+                  }}>
                     <a className={`${group === 4 ? "active" : ""}`}>
                       <span id="tagLive" className="tag-live">
                         <strong></strong>0
@@ -224,7 +231,10 @@ const PublicHeader = () => {
                       Cricket
                     </a>
                   </li>
-                  <li onClick={() => dispatch(setGroupType(1))}>
+                  <li onClick={() => {
+                    dispatch(setGroupType(1))
+                    navigate('/')
+                  }}>
                     <a className={`${group === 1 ? "active" : ""}`}>
                       <span id="tagLive" className="tag-live">
                         <strong></strong>0
@@ -232,7 +242,10 @@ const PublicHeader = () => {
                       Football
                     </a>
                   </li>
-                  <li onClick={() => dispatch(setGroupType(2))}>
+                  <li onClick={() => {
+                    dispatch(setGroupType(2))
+                    navigate('/')
+                  }}>
                     <a className={`${group === 2 ? "active" : ""}`}>
                       <span id="tagLive" className="tag-live">
                         <strong></strong>0
