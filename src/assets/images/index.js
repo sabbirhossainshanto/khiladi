@@ -11,8 +11,10 @@ import rdgif1 from './RDGIF-1.webp'
 import rdgif2 from './RDGIF-2.webp'
 import whatsapp from './whatsapp-icon-new.png'
 import cricketBanner from './Cricket-banner.jpg'
+import evolution from './evolution.png'
+import ezugi from './evolution.png'
 
 
 export default {
-brand_logo,topgame1,pgBanner,aviatorIcon,mainBanner,mainMobileBanner,bonus1,bonus2,bonus6,rdgif1,rdgif2,whatsapp,cricketBanner
+brand_logo,topgame1,pgBanner,aviatorIcon,mainBanner,mainMobileBanner,bonus1,bonus2,bonus6,rdgif1,rdgif2,whatsapp,cricketBanner,evolution
 };

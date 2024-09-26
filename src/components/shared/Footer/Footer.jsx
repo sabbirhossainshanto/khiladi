@@ -1,10 +1,12 @@
+import images from "../../../assets/images";
+
 const Footer = () => {
   return (
     <div className="partner_logo">
       <ul className="footer-providers__list footer-icon-desktop">
         <li className="footer-providers__list-item">
           <a className="footer-providers__list-item-link" href="#">
-            <img src="static/images/evolution.png" alt="Evolution" />
+            <img src={images.evolution} alt="Evolution" />
           </a>
         </li>
         <li className="footer-providers__list-item">

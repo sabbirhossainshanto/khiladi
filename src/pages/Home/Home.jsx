@@ -17,7 +17,6 @@ const Home = () => {
     pollingInterval: isRefetchGroupData(group) ? 1000 : null,
   });
 
-
   return (
     <div className="full-wrap mar-top100  footerpd mar-top100-login mar-bottom0">
       {token ? <LeftSidebar /> : <TopBanner />}
@@ -35,9 +34,7 @@ const Home = () => {
         )}
         {!token && <TopGames />}
 
-       {
-        data &&  <Group data={data} />
-       }
+        {data && <Group data={data} />}
         {!token && (
           <div className="depositbonus-box">
             <div className="depositbonus-banner">
@@ -47,7 +44,7 @@ const Home = () => {
         )}
         {!token && <FAQ />}
       </div>
-      <Footer />
+      {!token && <Footer />}
     </div>
   );
 };
