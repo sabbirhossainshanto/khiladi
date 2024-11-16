@@ -17,11 +17,14 @@ import MatchOdds from "../../components/ui/EventDetails/MatchOdds";
 import Bookmaker from "../../components/ui/EventDetails/Bookmaker";
 import Fancy from "../../components/ui/EventDetails/Fancy";
 import BetSlipDesktop from "../../components/ui/EventDetails/BetSlipDesktop";
+import ScoreCard from "../../components/ui/EventDetails/ScoreCard";
+import IFrameScore from "../../components/ui/EventDetails/IFrame";
+import IframeVideoTab from "../../components/ui/EventDetails/IframeVideoTab";
 
 const EventDetails = () => {
+  const [tab, setTab] = useState("");
   const dispatch = useDispatch();
   const { placeBetValues, price, stake } = useSelector((state) => state.event);
-  const { refetchBalance } = useBalance();
   const { eventTypeId, eventId } = useParams();
   const payload = {
     eventTypeId,
@@ -37,10 +40,7 @@ const EventDetails = () => {
   const { data } = useGetAllOddsEventsQuery(payload, {
     pollingInterval: settings.interval,
   });
-  useEffect(() => {
-    refetchBalance();
-    window.scrollTo(0, 0); // Scroll to top when component mounts
-  }, [refetchBalance]);
+
   /* Filtered all the game  */
   useEffect(() => {
     if (data?.result) {
@@ -259,7 +259,6 @@ const EventDetails = () => {
     return hasDecimal ? parseFloat(value?.toFixed(2)) : value;
   };
 
-  console.log(data);
   return (
     <div className="full-wrap mar-top100 footerpd footerpd">
       <LeftSidebar />
@@ -292,6 +291,15 @@ const EventDetails = () => {
           </div>
 
           <div>
+            <IframeVideoTab tab={tab} setTab={setTab} score={data?.score} />
+            <IFrameScore
+              betType={tab}
+              score={data?.score}
+              setBetType={setTab}
+            />
+            {match_odds?.[0]?.score?.length > 0 && eventTypeId == 4 && (
+              <ScoreCard score={data?.score} match_odds={match_odds} />
+            )}
             {match_odds?.length > 0 && <MatchOdds match_odds={match_odds} />}
             {bookmaker?.length > 0 && <Bookmaker bookmaker={bookmaker} />}
           </div>

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 const useBalance = () => {
   const dispatch = useDispatch();
   const token = useSelector(userToken);
+
   const { data: balance = {}, refetch: refetchBalance } = useQuery({
     queryKey: ["balance"],
     enabled: token ? true : false,

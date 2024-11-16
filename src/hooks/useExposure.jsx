@@ -11,7 +11,7 @@ const useExposer = (eventId) => {
   const token = useSelector(userToken);
   const { data: exposer = {}, refetch: refetchExposure } = useQuery({
     queryKey: ["exposure"],
-
+    enabled: token ? true : false,
     queryFn: async () => {
       const generatedToken = handleRandomToken();
       const encryptedData = handleEncryptData({
