@@ -39,9 +39,9 @@ export const API = {
   bankAccount: "",
   pg: "",
   uploadScreenshot: "",
-  withdrawBreakdown:"",
-  banner:"",
-  exchangeGames:""
+  withdrawBreakdown: "",
+  banner: "",
+  exchangeGames: "",
 };
 
 export const settings = {
@@ -63,4 +63,5 @@ export const settings = {
   logoWidth: "",
   apkLink: "",
   betFairCashOut: "",
+  b2c: true,
 };

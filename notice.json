@@ -20,6 +20,7 @@
       "casinoCurrency": "INR",
       "balanceApiLoop": false,
       "betFairCashOut": true,
+      "b2c": true,
       "logo": {
         "height": 55,
         "width": 225,
@@ -92,7 +93,7 @@
       "uploadScreenshot": "https://b2c.bet/deposit/up.php",
       "withdrawBreakdown": "https://api7.live/api/exchange/diamond/withdrawBreakdown",
       "banner": "https://api7.live/api/exchange/diamond/banner",
-      "exchangeGames" : "https://cache7.live/api/exchange/diamond/exchangeGames"
+      "exchangeGames": "https://cache7.live/api/exchange/diamond/exchangeGames"
     }
   },
   "success": true
